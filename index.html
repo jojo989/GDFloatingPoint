@@ -11,7 +11,7 @@
   </style>
 </head>
 <body>
-  <h1>Ulp TPS Calculator by chizz 😛</h1>
+  <h1>Floating Point Freeze Calculator by chizz 😛</h1>
 
   <label>Distance: <input id="distance" value="100" /></label>
   <label>Velocity: <input id="velocity" value="10" /></label>
@@ -40,7 +40,6 @@
 
     function formatNum(n) {
       if (!Number.isFinite(n)) return String(n);
-      // Use 17 significant digits for double-ish display similar to "G17"
       return Number(n).toPrecision(17);
     }
 
@@ -80,7 +79,6 @@ Maximum tps to freeze: ${formatNum(max)}`;
       console.error('Unhandled error', e.error || e.message, e);
       const out = document.getElementById('out');
       if (out) out.textContent = 'An error occurred — check console for details.';
-      // prevent default browser handler if desired: e.preventDefault();
     });
 
     window.addEventListener('unhandledrejection', function (e) {
